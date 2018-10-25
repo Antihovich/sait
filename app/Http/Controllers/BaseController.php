@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Maintext;
+
 
 class BaseController extends Controller
 {
     public function getindex() {
-		return view('welcome');
+	$obj= Maintext::where('url','index')->first();
+	return view('static',compact('obj'));
 }
 }
