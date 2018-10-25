@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Feedback;
+use Auth;
+
 
 class HomeController extends Controller
 {
@@ -25,4 +28,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+	public function postIndex(){
+		//dd($_POST);	
+		$body=$_POST['body'];
+	$obj=new Feedback;
+	$obj->body=$body;
+	$obj->user_id= Auth::user()->id;
+	$obj->save();
+	return redirect('/home');
+	}
+
 }
