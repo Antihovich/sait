@@ -18,7 +18,15 @@
   jQuery
   
 ## Информация по установке
-
+-cd domains
+-git clone https://github.com/Antihovich/sait
+-composer self update
+-composer install
+-создать файл .evn из evn.example
+-создать базу с именем sait
+-выполнить миграцию php artisan migrate либо экспорт файла
+-перезапустить сервер
+-набнрать в адресной строке https://sait
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
