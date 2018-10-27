@@ -24,6 +24,7 @@
 	  <a href={{asset("menu")}}>Меню</a>
 	  <a href={{asset("about")}}>О нас</a>
 	  <a href={{asset("servises")}}>Услуги</a>
+	  <a href={{asset("categories")}}>Товары</a>
 	   <a href={{asset("contacts")}}>Контакты</a>
 	    @guest
                            
