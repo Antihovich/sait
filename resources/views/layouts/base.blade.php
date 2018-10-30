@@ -70,8 +70,7 @@
 @yield('content')
 	   </div>	  
 	   <div class="col-md-2">
-	   <!--pogoda.by-->
-<!--Информер распространяется свободно и на безвозмездной основе. Однако, в случае изменения кода информера (в частности, удаления ссылок), POGODA.BY снимает с себя ответственность за конечный результат.-->
+<a href="{{asset('basket')}}" class="btn btn-lg btn-block btn-primary">Моя корзина ({{$cookie_caunt}})</a>
 
 <table width="100%" height="180" style="background-color:#f2f2f2; border: #cccccc 1px solid; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="2" cellspacing="0">
 <tr><td><a href="http://6.pogoda.by/26850" style="font-family:Tahoma; font-size:12px; color:#003399;" title="Погода Минск на 6 дней - Гидрометцентр РБ" target="_blank">Погода Минск</a>

@@ -20,6 +20,9 @@
 		   <a href='#' class="product_link">
 		   {{$one->name}}
 		   </a>
+		   		   <a href="{{asset('basket/add/'.$one->id)}}" class="product_link">
+		   Добавить в корзину
+		   </a>
 		   </h3>
 		   {!!$one->body!!}
 		  
