@@ -11,6 +11,7 @@
 	 @section('stiles')
 	 @show
 	 @section('scripts')
+	 <script src="{{asset('public/js/app.js')}}"> </script>
 	 @show
 	 
 	</head>

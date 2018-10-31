@@ -1,9 +1,14 @@
 	@extends('layouts.base')
+		 @section('scripts')
+		 @parent
+		 <script src="{{asset('media/js/order.js')}}"> </script>
+	 @endsection
 	@section('content')
 		
 		<h2>Моя корзина</h2>
 		
 		<div class="maintext">
+		<form method="get" action="{{asset('orderreg')}}">
 		<table class="table table-bordered table-striped" width="100%">
 		<tr> 
 		   <th>Изображение</th>
@@ -18,6 +23,7 @@
 		  $itog = 0;
 		 @endphp 
 		@foreach ($arr as $key=>$value)
+		
 		@php
 		
 		  $count = $value * $products[$key]->price;
@@ -33,16 +39,24 @@
 		   @endif
 		</td>
 		<td>
+		
 		{{$products[$key]->name}}
+
 		</td>
 		<td>
+		<span id="price_{{$key}}">
 				{{$products[$key]->price}}
+						</span>
+		</td>
+
+		<td>
+		<input type="number" name="{{$key}}" value="{{$value}}" min=0 data-id="{{$key}}" class="form-control count"/>
+		
 		</td>
 		<td>
-		{{$value}}
-		</td>
-		<td>
-		{{$count}}
+		<span id="count_{{$key}}">
+			{{$count}}
+		</span>	
 		</td>
 		<td>
 		<a href="{{asset('basket/dell/'.$key)}}" data-id="{{$key}}">
@@ -63,9 +77,9 @@
 		 </td>
         </table>		
 		<div class="col-md-10"></div>
-		<div class="col-md-2"> <a href="{{asset('orderreg')}}" class="btn btn-primary"> Перейти к оформлению заказа</a></div>
+		<div class="col-md-2"> <button type="submit" class="btn btn-primary"> Перейти к оформлению заказа</button></div>
 		
-	   
+	   </form>
 	   </div>
 	 @endsection
 	  

@@ -7,8 +7,9 @@
 @endsection
 
 
-
+ 
 @section('content')
+      
 				<h2>Оформление заказа</h2>
                <br/>
 				<div class="maintext">
@@ -17,7 +18,7 @@
 
             <div class="col-md-6">      
 					<div class="card-body">
-                                <form method="POST" action="">
+                                <form method="post" action="{{asset('order')}}">
                                     @csrf
 
                                     <div class="form-group row">
@@ -119,6 +120,7 @@
                             </div>
                         
                     </form>
+			</form>		
                 </div>
             </div>
 
