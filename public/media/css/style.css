@@ -5,8 +5,11 @@ body{
 }
 #header{
 	height:200px;
-	background:black;
+	background: url(media/img/fon.jpg);
+	
 }
+
+
 #logo{
     float: right;
 }	

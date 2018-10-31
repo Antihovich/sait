@@ -62,7 +62,8 @@
 		 <a href="{{asset('basket/clear')}}">Очистить всё</a>
 		 </td>
         </table>		
-		
+		<div class="col-md-10"></div>
+		<div class="col-md-2"> <a href="{{asset('orderreg')}}" class="btn btn-primary"> Перейти к оформлению заказа</a></div>
 		
 	   
 	   </div>
