@@ -13,12 +13,25 @@
 				<h2>Оформление заказа</h2>
                <br/>
 				<div class="maintext">
-
+                                <form method="post" action="{{asset('order')}}">
 
 
             <div class="col-md-6">      
 					<div class="card-body">
-                                <form method="post" action="{{asset('order')}}">
+					
+					 @if(count($errors) > 0)
+						 <div class="alert alert-danger">
+					        <strong>Whoops!</strong>Найдены следующие ошибки.<br><br>
+							<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error}} </li>
+							 @endforeach
+                              </ul>
+							</div>
+                           @endif	
+                 
+
+						
                                     @csrf
 
                                     <div class="form-group row">
@@ -53,7 +66,7 @@
                                         <label for="address" class="col-md-2 col-form-label text-md-right">Адрес<i>*</i></label>
 
                                         <div class="col-md-10">
-                                            <input id="address" type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="address" required>
+                                            <input id="address" type="text" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="address"  value="{{ old('address') }}"  required>
 
                                             @if ($errors->has('address'))
                                                 <span class="invalid-feedback" role="alert">
@@ -67,7 +80,7 @@
                                         <label for="phone" class="col-md-2 col-form-label text-md-right">Телефон<i>*</i></label>
 
                                         <div class="col-md-10">
-                                            <input id="phone" type="text" class="form-control" name="phone" required>
+                                            <input id="phone" type="text" class="form-control" name="phone"  value="{{ old('phone') }}"  required>
                                         </div>
                                     </div>
 
@@ -78,11 +91,11 @@
                                     	<textarea rows="10" cols="103" name="body"  class="ckeditor"></textarea>
                                     </div>
                                     </div>
-                                </form>
+
                         </div>
                     </div>
                     <div class="col-md-6"> 
-                        <form method="POST" action="">
+
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1" class="col-md-12 col-form-label text-md-right">Выберите способ доставки</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -103,15 +116,6 @@
 
 
 
-
-                        </form>
-                    </div>
-
-
-
-
-
-
                         
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -119,9 +123,10 @@
                                 </button>
                             </div>
                         
-                    </form>
-			</form>		
-                </div>
-            </div>
 
+	
+                </div>
+            </div>			
+			</form>	
+</div>
 @endsection

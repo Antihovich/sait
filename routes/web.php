@@ -12,7 +12,8 @@ Route::get('basket', 'BascetController@getAll');
 Route::get('basket/dell/{id}','BascetController@getDell');
 Route::get('basket/clear','BascetController@getClear');
 Route::get('orderreg', 'BascetController@index');
-Route::post('order', 'OrderController@postOrder');
+Route::post('order', 'OrderController@postIndex');
+Route::get('admin/order/one/{id}', 'Admin/OrderController@getIndex');
 
 
 //всегда последний
