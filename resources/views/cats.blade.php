@@ -1,5 +1,9 @@
 	@extends('layouts.base')
 	@section('content')
+	@section('scripts') 
+    @parent
+    @endsection
+	<script src="{{asset('js/modal.js')}}"></script>
 		
 		<h2 class="">Категории</h2>
 		
@@ -12,9 +16,9 @@
 		@foreach($cat->products()->get() as $one)
 		  <hr/>
 		  @if($one->picture)
-			  <img  class="product" src="{{asset('uploads/thumb/'.$one->picture)}}"/>
+			  <img  class="product" src="{{asset('uploads/thumb/'.$one->picture)}}" id="{{$one->id}}"/>
 		   @else
-			   <img class="product" src="{{asset('media/img/no_photo.png')}}"/>
+			   <img class="product" src="{{asset('media/img/no_photo.png')}}" id="{{$one->id}}"/>
 		   @endif
 		   <h3>
 		   <a href='#' class="product_link">
@@ -31,4 +35,5 @@
 			     @endforeach
 		</div>
 	 @endsection
+	  
 	  
