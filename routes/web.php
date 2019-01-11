@@ -1,7 +1,14 @@
 <?php
 
-Route::get('/','BaseController@getindex');
+Route::group(['middleware'=>['authuser']],
+     function (){
+Route::get('basket', 'BasketController@getIndex');
+	 }		 
+Route::get('ajax/parse/catalog', 'Admin\AjaxParseController@getCatalog');
+ );
+Route::get('/', 'BaseController@getIndex');
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@postIndex');
 Route::get('feedback', 'FeedbackController@getIndex');
@@ -14,6 +21,8 @@ Route::get('basket/clear','BascetController@getClear');
 Route::get('orderreg', 'BascetController@index');
 Route::post('order', 'OrderController@postIndex');
 Route::get('admin/order/one/{id}', 'Admin/OrderController@getIndex');
+
+
 
 
 //всегда последний
