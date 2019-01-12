@@ -1,11 +1,9 @@
 <?php
 
-Route::group(['middleware'=>['authuser']],
-     function (){
-Route::get('basket', 'BasketController@getIndex');
-	 }		 
-Route::get('ajax/parse/catalog', 'Admin\AjaxParseController@getCatalog');
- );
+Route::group(['middleware'=>['authuser']],     function (){
+ Route::get('basket', 'BasketController@getIndex');
+ Route::get('ajax/parse/catalog', 'Admin\AjaxParseController@getCatalog');
+});
 Route::get('/', 'BaseController@getIndex');
 Auth::routes();
 

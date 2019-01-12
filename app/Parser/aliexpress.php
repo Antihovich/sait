@@ -1,4 +1,4 @@
-
+<?php
 use Symfony\Component\DomCrawler\Crawler;
 use Auth;
 
@@ -17,7 +17,11 @@ class aliexpress implements ParseContract
   
         $file = file_get_contents($url);
         $this->crawler = new Crawler($file);
-		$body=$this->crawler->filter('body')->html();
-		return $body;
+		$this->crawler->filter('.list-item')->each(function(Crawler $node, $i){
+   $name = $node->text();
+   $pic = $node->filter('img')->attr('src');
+   echo $name;
+   echo ' - '.$pic; 
+});
     }
 }
